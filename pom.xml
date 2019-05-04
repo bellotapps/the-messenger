@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bellotapps.the-messenger</groupId>
+    <artifactId>the-messenger-build</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <name>The Messenger Build</name>
+
+    <description>A framework for sending messages.</description>
+
+    <url>https://the-messenger.bellotapps.com</url>
+
+    <properties>
+        <revision>0.0.1-SNAPSHOT</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>the-messenger-project</module>
+    </modules>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Juan Marcos Bellini</name>
+            <email>jbellini@bellotapps.com</email>
+            <organization>BellotApps</organization>
+            <organizationUrl>https://bellotapps.com</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/bellotapps/the-messenger.git</connection>
+        <developerConnection>scm:git:ssh://github.com:bellotapps/the-messenger.git</developerConnection>
+        <url>http://github.com/bellotapps/the-messenger/tree/master</url>
+    </scm>
+</project>
