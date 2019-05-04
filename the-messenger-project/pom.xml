@@ -17,6 +17,7 @@
     <modules>
         <module>bill-of-materials</module>
         <module>commons</module>
+        <module>json</module>
     </modules>
 
     <properties>
