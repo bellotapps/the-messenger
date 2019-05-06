@@ -28,8 +28,8 @@ public class JacksonJsonSerializer<T> implements Serializer<T> {
      * @param classToSerialize The class that was tried to be serialized.
      */
     public JacksonJsonSerializer(final ObjectMapper objectMapper, final Class<T> classToSerialize) {
-        Validate.notNull(objectMapper, "The object mapper must not be null");
-        Validate.notNull(classToSerialize, "The class to serialize must not be null");
+        Validate.isTrue(objectMapper != null, "The object mapper must not be null");
+        Validate.isTrue(classToSerialize != null, "The class to serialize must not be null");
         this.objectMapper = objectMapper;
         this.classToSerialize = classToSerialize;
     }

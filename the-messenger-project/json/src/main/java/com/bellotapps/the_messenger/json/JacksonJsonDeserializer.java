@@ -3,6 +3,7 @@ package com.bellotapps.the_messenger.json;
 import com.bellotapps.the_messenger.commons.data_transfer.DeserializationException;
 import com.bellotapps.the_messenger.commons.data_transfer.Deserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.Validate;
 
 import java.io.IOException;
 
@@ -28,6 +29,8 @@ public class JacksonJsonDeserializer<T> implements Deserializer<T> {
      * @param classToInstantiate {@link Class} to be instantiated when deserializing.
      */
     public JacksonJsonDeserializer(final ObjectMapper objectMapper, final Class<T> classToInstantiate) {
+        Validate.isTrue(objectMapper != null, "The object mapper must not be null");
+        Validate.isTrue(classToInstantiate != null, "The class to instantiate must not be null");
         this.objectMapper = objectMapper;
         this.classToInstantiate = classToInstantiate;
     }
