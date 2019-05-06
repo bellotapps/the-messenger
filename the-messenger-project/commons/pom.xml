@@ -12,7 +12,7 @@
 
     <artifactId>commons</artifactId>
     <name>Commons</name>
-    <url>http://maven.apache.org</url>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
