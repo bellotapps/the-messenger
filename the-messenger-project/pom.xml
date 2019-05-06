@@ -18,6 +18,7 @@
         <module>bill-of-materials</module>
         <module>commons</module>
         <module>json</module>
+        <module>consumer</module>
     </modules>
 
     <properties>

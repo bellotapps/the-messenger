@@ -26,10 +26,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
 import java.time.Instant;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Supplier;
 
 /**
@@ -101,15 +98,14 @@ public class Message {
             @JsonProperty(value = ID, access = JsonProperty.Access.WRITE_ONLY) final String id,
             @JsonProperty(value = SENDER, access = JsonProperty.Access.WRITE_ONLY) final String sender,
             @JsonProperty(value = TIMESTAMP, access = JsonProperty.Access.WRITE_ONLY)
-            @JsonDeserialize(using = InstantEpochDeserializer.class)
-            final Instant timestamp,
+            @JsonDeserialize(using = InstantEpochDeserializer.class) final Instant timestamp,
             @JsonProperty(value = HEADERS, access = JsonProperty.Access.WRITE_ONLY) final Map<String, String> headers,
             @JsonProperty(value = PAYLOAD, access = JsonProperty.Access.WRITE_ONLY) final String payload)
             throws IllegalArgumentException {
         Validate.isTrue(StringUtils.isNotBlank(id), "The id must have text");
         Validate.isTrue(StringUtils.isNotBlank(sender), "The sender must have text");
-        Validate.notNull(timestamp, "The timestamp must not be null");
-        Validate.notNull(headers, "The headers map must not be null");
+        Validate.isTrue(timestamp != null, "The timestamp must not be null");
+        Validate.isTrue(headers != null, "The headers map must not be null");
         Validate.isTrue(
                 headers.entrySet().stream().noneMatch(e -> StringUtils.isAnyBlank(e.getKey(), e.getValue())),
                 "All the headers key and value must have text"
@@ -162,6 +158,39 @@ public class Message {
         return payload;
     }
 
+    /**
+     * A convenient method for inquiring the type of message.
+     *
+     * @return An {@link Optional} containing the type of message if any, or empty otherwise.
+     */
+    public Optional<String> type() {
+        return Optional.ofNullable(headers.get(DefinedHeader.MESSAGE_TYPE.serialize()));
+    }
+
+    /**
+     * A convenient method for inquiring the content type of the message.
+     *
+     * @return An {@link Optional} containing the content type of the message if any, or empty otherwise.
+     */
+    public Optional<String> contentType() {
+        return Optional.ofNullable(headers.get(DefinedHeader.CONTENT_TYPE.serialize()));
+    }
+
+    /**
+     * A convenient method for inquiring the command in the message (if it is a Command message).
+     *
+     * @return An {@link Optional} containing the command of message if any, or empty otherwise.
+     * @apiNote For non command messages, an empty {@link Optional} will be returned.
+     */
+    public Optional<String> command() {
+        // First check whether it is a Command message.
+        if (type().filter(type -> MessageType.COMMAND.serialize().equals(type)).isPresent()) {
+            // If yes, get the command (wrapped in an Optional as it might not be present, though it shouldn't).
+            return Optional.ofNullable(headers.get(DefinedHeader.COMMAND.serialize()));
+        }
+        // If not, return an empty Optional.
+        return Optional.empty();
+    }
 
     /**
      * A builder of {@link Message}s.
