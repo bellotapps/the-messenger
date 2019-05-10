@@ -10,9 +10,9 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>json</artifactId>
+    <artifactId>transport-json-jackson</artifactId>
     <packaging>jar</packaging>
-    <name>JSON</name>
+    <name>Producer</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

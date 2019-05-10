@@ -1,4 +1,6 @@
-package com.bellotapps.the_messenger.commons;
+package com.bellotapps.the_messenger.commons.headers;
+
+import com.bellotapps.the_messenger.commons.ToStringSerializable;
 
 /**
  * Enum containing well-known content types.
