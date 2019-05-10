@@ -11,8 +11,8 @@
     </parent>
 
     <artifactId>consumer</artifactId>
-    <name>Consumer</name>
     <packaging>jar</packaging>
+    <name>Consumer</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

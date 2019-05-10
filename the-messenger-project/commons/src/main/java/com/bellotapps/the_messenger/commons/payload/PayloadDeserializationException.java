@@ -1,9 +1,9 @@
-package com.bellotapps.the_messenger.commons.data_transfer;
+package com.bellotapps.the_messenger.commons.payload;
 
 /**
- * A {@link RuntimeException} to be thrown when deserialization errors occur.
+ * A {@link RuntimeException} to be thrown when a payload deserialization errors occur.
  */
-public class DeserializationException extends RuntimeException {
+public class PayloadDeserializationException extends RuntimeException {
 
     /**
      * The {@link String} that was tried to be deserialized.
@@ -21,7 +21,7 @@ public class DeserializationException extends RuntimeException {
      * @param stringToDeserialize The {@link String} that was tried to be deserialized.
      * @param classToInstantiate  {@link Class} to be instantiated when deserializing.
      */
-    public DeserializationException(final String stringToDeserialize, final Class<?> classToInstantiate) {
+    public PayloadDeserializationException(final String stringToDeserialize, final Class<?> classToInstantiate) {
         super("Could not deserialize the string: " + stringToDeserialize
                 + " into an object of class " + classToInstantiate);
         this.stringToDeserialize = stringToDeserialize;
@@ -35,7 +35,7 @@ public class DeserializationException extends RuntimeException {
      * @param classToInstantiate  {@link Class} to be instantiated when deserializing.
      * @param message             The detail message, which can be retrieved by the {@link #getMessage()} method.
      */
-    public DeserializationException(
+    public PayloadDeserializationException(
             final String stringToDeserialize,
             final Class<?> classToInstantiate,
             final String message) {
@@ -53,7 +53,7 @@ public class DeserializationException extends RuntimeException {
      * @param cause               The {@link Throwable} that causes this exception to be thrown.
      *                            Can be retrieved by the {@link #getCause()} method.
      */
-    public DeserializationException(
+    public PayloadDeserializationException(
             final String stringToDeserialize,
             final Class<?> classToInstantiate,
             final String message,
@@ -72,7 +72,7 @@ public class DeserializationException extends RuntimeException {
      * @param classToInstantiate  {@link Class} to be instantiated when deserializing.
      * @since 1.4
      */
-    public DeserializationException(
+    public PayloadDeserializationException(
             final String stringToDeserialize,
             final Class<?> classToInstantiate,
             final Throwable cause) {

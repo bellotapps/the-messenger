@@ -1,9 +1,9 @@
-package com.bellotapps.the_messenger.commons.data_transfer;
+package com.bellotapps.the_messenger.commons.payload;
 
 /**
- * A {@link RuntimeException} to be thrown when serialization errors occur.
+ * A {@link RuntimeException} to be thrown when a payload serialization errors occur.
  */
-public class SerializationException extends RuntimeException {
+public class PayloadSerializationException extends RuntimeException {
 
     /**
      * The class that was tried to be serialized.
@@ -15,7 +15,7 @@ public class SerializationException extends RuntimeException {
      *
      * @param classToSerialize The class that was tried to be serialized.
      */
-    public SerializationException(final Class<?> classToSerialize) {
+    public PayloadSerializationException(final Class<?> classToSerialize) {
         super("Could not serialize instance of type: " + classToSerialize.getName());
         this.classToSerialize = classToSerialize;
     }
@@ -26,7 +26,7 @@ public class SerializationException extends RuntimeException {
      * @param classToSerialize The class that was tried to be serialized.
      * @param message          The detail message, which can be retrieved by the {@link #getMessage()} method.
      */
-    public SerializationException(final Class<?> classToSerialize, final String message) {
+    public PayloadSerializationException(final Class<?> classToSerialize, final String message) {
         super(message);
         this.classToSerialize = classToSerialize;
     }
@@ -39,7 +39,7 @@ public class SerializationException extends RuntimeException {
      * @param cause            The {@link Throwable} that causes this exception to be thrown.
      *                         Can be retrieved by the {@link #getCause()} method.
      */
-    public SerializationException(final Class<?> classToSerialize, final String message, final Throwable cause) {
+    public PayloadSerializationException(final Class<?> classToSerialize, final String message, final Throwable cause) {
         super("Could not serialize instance of type: " + classToSerialize.getName() + ". Message: " + message, cause);
         this.classToSerialize = classToSerialize;
     }
@@ -52,7 +52,7 @@ public class SerializationException extends RuntimeException {
      *                         Can be retrieved by the {@link #getCause()} method.
      * @since 1.4
      */
-    public SerializationException(final Class<?> classToSerialize, final Throwable cause) {
+    public PayloadSerializationException(final Class<?> classToSerialize, final Throwable cause) {
         super("Could not serialize instance of type: " + classToSerialize.getName(), cause);
         this.classToSerialize = classToSerialize;
     }

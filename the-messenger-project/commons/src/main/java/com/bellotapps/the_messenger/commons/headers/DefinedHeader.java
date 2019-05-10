@@ -1,4 +1,6 @@
-package com.bellotapps.the_messenger.commons;
+package com.bellotapps.the_messenger.commons.headers;
+
+import com.bellotapps.the_messenger.commons.ToStringSerializable;
 
 /**
  * Enum containing well-known headers.
@@ -16,7 +18,7 @@ public enum DefinedHeader implements ToStringSerializable {
         }
     },
     /**
-     * Indicates the type of content of the message (i.e the payload).
+     * Indicates the type of content of the message (i.e the payload's content type).
      *
      * @see ContentType
      */
