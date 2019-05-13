@@ -6,11 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.Validate;
 
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * A {@link PayloadDeserializer} that delegates deserialization to a Jackson's {@link ObjectMapper}.
  */
-public class JacksonJsonPayloadDeserializer<T> implements PayloadDeserializer<T> {
+public class JacksonJsonPayloadDeserializer<T> implements PayloadDeserializer<T>, JsonContentTypeHandler {
 
     /**
      * The {@link ObjectMapper} to which the deserialization is delegated to.
@@ -38,7 +39,7 @@ public class JacksonJsonPayloadDeserializer<T> implements PayloadDeserializer<T>
     @Override
     public T deserialize(final String string) throws PayloadDeserializationException {
         try {
-            return objectMapper.readValue(string, classToInstantiate);
+            return objectMapper.readValue(Optional.ofNullable(string).orElse("null"), classToInstantiate);
         } catch (final IOException e) {
             throw new PayloadDeserializationException(string, classToInstantiate, e);
         }

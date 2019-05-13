@@ -19,6 +19,7 @@
         <module>json</module>
         <module>commons</module>
         <module>consumer</module>
+        <module>producer</module>
         <module>transport-json-jackson</module>
     </modules>
 
