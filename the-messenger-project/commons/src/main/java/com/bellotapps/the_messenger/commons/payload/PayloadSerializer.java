@@ -5,7 +5,7 @@ package com.bellotapps.the_messenger.commons.payload;
  *
  * @param <T> Concrete type of object to be serialized.
  */
-public interface PayloadSerializer<T> {
+public interface PayloadSerializer<T> extends ContentTypeHandler {
 
     /**
      * Serializes the given {@code object}.

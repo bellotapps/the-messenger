@@ -9,7 +9,7 @@ import org.apache.commons.lang3.Validate;
 /**
  * A {@link PayloadSerializer} that delegates serialization to a Jackson's {@link ObjectMapper}.
  */
-public class JacksonJsonPayloadSerializer<T> implements PayloadSerializer<T> {
+public class JacksonJsonPayloadSerializer<T> implements PayloadSerializer<T>, JsonContentTypeHandler {
 
     /**
      * The {@link ObjectMapper} to which the serialization is delegated to.
