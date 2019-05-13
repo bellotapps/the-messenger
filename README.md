@@ -15,7 +15,20 @@ This framework consist of several libraries that helps sending and receiving mes
 
 #### Maven central
 
-The artifacts will be available in maven central once the first release is performed. In the meantime, you can build the artifacts from source.
+All the modules are hosted in Maven Central, and can be accessed by adding the corresponding dependency in your ```pom.xml``` file.
+
+For example:
+
+```xml
+<dependency>
+    <groupId>com.bellotapps.the-messenger</groupId>
+    <artifactId>commons</artifactId>
+    <version>${the-messenger.version}</version>
+</dependency>
+```
+
+**Note:** A placeholder is used as ```version``` in the previous example to avoid changing this readme each time a new version is released. Replace the ```${the-messenger.version}``` placeholder with the actual version of the ```the-messenger``` project.
+
 
 #### Build from source
 
